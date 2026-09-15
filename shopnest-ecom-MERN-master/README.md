@@ -1,76 +1,100 @@
-<div align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="ShopNest Logo" width="80" />
-  <h1>ShopNest - Full-Stack MERN E-Commerce App</h1>
-  <p>A professionally engineered, full-stack E-commerce platform built strictly using modern standard React (CRA) on the frontend and Express/MongoDB on the backend.</p>
-</div>
+# ShopNest — Full-Stack MERN E-Commerce Platform
 
----
+A full-stack e-commerce application built with **React, Redux Toolkit, Node.js, Express, and MongoDB**. The project includes authentication, product management, cart functionality, orders, admin workflows, image uploads, and Razorpay payment integration.
 
-## 🛠 Tech Stack Details
+> **Note:** This repository contains the existing ShopNest codebase. Original package metadata credits the original author, Shivansh Vasu; that attribution has intentionally been preserved.
 
-- **Frontend:** Pure React.js (`react-scripts`), Redux Toolkit (for Cart state management), AuthContext API (for JWT user sessions).
-- **Backend:** Node.js, Express.js architecture mapped with middleware-based routing.
-- **Database:** MongoDB (via Mongoose schemas).
-- **Features:** Unified Admin Dashboard, Direct Cloudinary Content Maps, Personal User Profiles matching mapped Order Histories.
-- **Payments:** Razorpay fully implemented (utilize your test metrics or placeholder).
-- **Cloud Storage:** Cloudinary integration for Product image uploading securely via Multer.
+## 🚀 Highlights
 
----
+- 🛍️ Product browsing and shopping cart
+- 🔐 JWT-based authentication and protected routes
+- 👤 User profiles and order history
+- 🛠️ Admin dashboard and product/order management
+- 💳 Razorpay payment integration
+- ☁️ Cloudinary image upload integration
+- 📦 MongoDB persistence with Mongoose
+- 🧪 Postman API collection for endpoint testing
+- ⚡ Concurrent frontend/backend development workflow
 
-## 🚀 Quick Start / Local Development Guide
+## 🧰 Tech Stack
 
-The workspace is configured beautifully using a monorepo-friendly setup with `concurrently`, enabling you to start everything from the very root folder.
+| Layer | Technologies |
+|---|---|
+| Frontend | React, Redux Toolkit, React Router, React Toastify |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT, bcryptjs |
+| Payments | Razorpay |
+| Media | Cloudinary, Multer |
+| API Testing | Postman |
 
-### 1️⃣ Dependencies & Environments
-Make sure you have MongoDB running locally, or map it to a remote database string.
+## 📁 Project Structure
 
-Inside the `backend/` folder, ensure your `.env` looks like this:
+```text
+shopnest-ecom-MERN-master/
+├── backend/                 # Express API, auth, models and business logic
+├── frontend/                # React application
+├── ShopNest_Postman_Collection.json
+├── package.json
+└── README.md
+```
+
+## ⚙️ Local Setup
+
+### Prerequisites
+
+- Node.js 18+
+- MongoDB
+- npm
+
+### 1. Install dependencies
+
+From `shopnest-ecom-MERN-master/`:
+
+```bash
+npm run install-all
+```
+
+### 2. Configure environment variables
+
+Create `backend/.env` with the values required by your local environment. Never commit real API keys, database credentials, JWT secrets, or payment secrets.
+
+Example:
+
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb://127.0.0.1:27017/shopnest
-JWT_SECRET=super_secret_key
-RAZORPAY_KEY_ID=your_key_id
-RAZORPAY_KEY_SECRET=your_key_secret
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 ```
 
-From the **root folder** `shopnest/`, trigger a full install across environments:
-```bash
-npm run build
-```
+### 3. Start development servers
 
-### 2️⃣ Populate the Database (Seeding)
-Test the platform rapidly featuring beautiful dummy products (Unsplash) and automatic `Admin` role provisioning:
-```bash
-npm run seed
-```
-> **Seed Admin Access:** Email: `admin@shopnest.com` | Password: `password123`
-
-### 3️⃣ Run Servers Start
-Run this single command at the root to bind the Backend (Port 5000) and Frontend (Port 3000) natively:
 ```bash
 npm run dev
 ```
 
----
+The frontend and backend run concurrently using the root development script.
 
-## ☁️ 1-Click Deployment (Render Free-Tier Optimized)
+### 4. Build the frontend
 
-The server codebase features a seamless fallback mechanic leveraging Node `process.env.NODE_ENV === "production"`. When deployed to Render as a singular instance, the Express backend hosts and correctly resolves static routes to `/frontend/build` rendering the whole platform completely free on 1 Node server.
+```bash
+npm run build
+```
 
-1. Publish this repo onto **GitHub**.
-2. Go to [Render Dashboard](https://dashboard.render.com).
-3. Connect Repo -> Create a **Web Service**.
-4. Configure Build Command:
-   `npm run render-build` 
-   *(This cleanly installs API + UI node_modules then generates `react-scripts build`)*
-5. Configure Start Command:
-   `npm start`
-6. Open **Advanced > Environment Variables** and map your `.env` fields heavily defining `NODE_ENV = production`.
-7. Hit **Deploy**. The robust path resolving inside `/backend/server.js` hosts it fluidly!
+## 🧪 API Testing
 
----
+Import `ShopNest_Postman_Collection.json` into Postman to test the available API endpoints. Keep authentication tokens and environment-specific secrets out of committed files.
 
-## 📄 Postman Documentations
-This repository includes a fully-scaffolded API testing toolkit: **`ShopNest_Postman_Collection.json`**. 
-Simply Import this file directly into the local Postman IDE. It features variables like `{{token}}` properly mapped to effortlessly check protected admin/user/order payloads. Happy coding!
+## 🔒 Security Notes
+
+- Do not commit `.env` files or production credentials.
+- Use test credentials for payment development.
+- Rotate any credential that may have been exposed in Git history.
+- Use strong secrets for JWT and database access.
+
+## 👨‍💻 Repository
+
+[View the project on GitHub](https://github.com/kaptan009/E-commerce)
